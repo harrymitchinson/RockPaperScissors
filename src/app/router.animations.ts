@@ -6,7 +6,7 @@ import {
   animateChild,
   query,
   stagger,
-  transition
+  transition,
 } from '@angular/animations';
 
 const first = query(
@@ -20,7 +20,7 @@ const second = group([
     ':enter',
     [
       style({ transform: 'translateX(100%)' }),
-      animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
+      animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' })),
     ],
     { optional: true }
   ),
@@ -28,12 +28,12 @@ const second = group([
     ':leave',
     [
       style({ transform: 'translateX(0%)' }),
-      animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))
+      animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' })),
     ],
     { optional: true }
-  )
+  ),
 ]);
 
 export const routerTransition = trigger('routerTransition', [
-  transition('* <=> *', [first, second])
+  transition('* <=> *', [first, second]),
 ]);

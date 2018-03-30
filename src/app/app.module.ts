@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { GameService } from './services';
 import {
   PlayerPickerComponent,
-  ChoicePickerComponent
+  ChoicePickerComponent,
 } from './components/pickers';
 import { OpponentComponent } from './pages/opponent/opponent.component';
 import { WeaponComponent } from './pages/weapon/weapon.component';
@@ -21,13 +21,31 @@ import { NoOpponentGuard } from './guards/no-opponent.guard';
 import { NoRoundsGuard } from './guards/no-rounds.guard';
 import { NoResultsGuard } from './guards/no-results.guard';
 
-
 export const ROUTES: Routes = [
-  { path: '', component: LandingComponent, data: { state: 'landing'} },
-  { path: 'opponent', component: OpponentComponent, data: { state: 'opponent'} },
-  { path: 'rounds', component: RoundsComponent, data: { state: 'rounds'}, canActivate: [NoOpponentGuard] },
-  { path: 'weapon/:round', component: WeaponComponent, data: { state: 'weapon'}, canActivate: [NoRoundsGuard] },
-  { path: 'result', component: ResultComponent, data: { state: 'result'}, canActivate: [NoResultsGuard] }
+  { path: '', component: LandingComponent, data: { state: 'landing' } },
+  {
+    path: 'opponent',
+    component: OpponentComponent,
+    data: { state: 'opponent' },
+  },
+  {
+    path: 'rounds',
+    component: RoundsComponent,
+    data: { state: 'rounds' },
+    canActivate: [NoOpponentGuard],
+  },
+  {
+    path: 'weapon/:round',
+    component: WeaponComponent,
+    data: { state: 'weapon' },
+    canActivate: [NoRoundsGuard],
+  },
+  {
+    path: 'result',
+    component: ResultComponent,
+    data: { state: 'result' },
+    canActivate: [NoResultsGuard],
+  },
 ];
 
 const DECLARATIONS = [
@@ -39,10 +57,15 @@ const DECLARATIONS = [
   OpponentComponent,
   RoundsComponent,
   WeaponComponent,
-  ResultComponent
+  ResultComponent,
 ];
 
-const IMPORTS = [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(ROUTES), FlexLayoutModule];
+const IMPORTS = [
+  BrowserModule,
+  BrowserAnimationsModule,
+  RouterModule.forRoot(ROUTES),
+  FlexLayoutModule,
+];
 
 const PROVIDERS = [GameService, NoOpponentGuard, NoRoundsGuard, NoResultsGuard];
 
@@ -50,6 +73,6 @@ const PROVIDERS = [GameService, NoOpponentGuard, NoRoundsGuard, NoResultsGuard];
   declarations: DECLARATIONS,
   imports: IMPORTS,
   providers: PROVIDERS,
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
