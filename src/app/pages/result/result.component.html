@@ -1,0 +1,34 @@
+<div class="full" fxLayout="column" fxLayoutAlign="center center" [ngClass]="{'bg-warning' : player1Score === player2Score, 'bg-success': player1Score > player2Score, 'bg-danger':player1Score < player2Score}">
+  <div class="row">
+    <div class="col-sm mb-4 text-light">
+      <h2 *ngIf="player1Score > player2Score">You won!</h2>
+      <h2 *ngIf="player1Score < player2Score">You lost!</h2>
+      <h2 *ngIf="player1Score === player2Score">It's a draw!</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm mb-4">
+      <div class="list-group" style="width: 500px">
+        <div class="list-group-item" *ngFor="let result of results; let i = index">
+          <div fxLayout="row" fxLayoutAlign="space-between center" class="mb-1">
+            <h5>Round {{i + 1}}</h5>
+            <h5>
+              <span *ngIf="result.winner === 0" [ngClass]="{'text-warning': result.winner === 0}">Draw</span>
+              <span *ngIf="result.winner === 1" [ngClass]="{'text-success': result.winner === 1}">Won</span>
+              <span *ngIf="result.winner === 2" [ngClass]="{'text-danger': result.winner === 2}">Loss</span>
+            </h5>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <p class="mb-1">You: {{choices[result.player1.choice]}}</p>
+            <p class="mb-1">Opponent: {{choices[result.player2.choice]}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <a class="btn btn-outline-light" [routerLink]="['/','opponent']">Start over</a>
+    </div>
+  </div>
+</div>

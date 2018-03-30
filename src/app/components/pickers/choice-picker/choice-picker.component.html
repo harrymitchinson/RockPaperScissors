@@ -1,0 +1,7 @@
+<h4 class="text-muted">Pick your weapon</h4>
+<div>
+  <button *ngFor="let type of choiceTypes" class="m-1 btn btn-lg btn-outline-info" (click)="select(type.value)">
+    <i class="far" [ngClass]="type.icon"></i>
+    <span class="mr-1">{{type.key}}</span>
+  </button>
+</div>

@@ -1,0 +1,4 @@
+<h4 class="card-title text-muted">Choose your opponent</h4>
+<div>
+  <button *ngFor="let type of playerTypes" class="m-1 btn btn-lg btn-outline-primary" (click)="select(type.value)">{{type.key}}</button>
+</div>

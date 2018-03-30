@@ -1,0 +1,4 @@
+<h4 class="card-title text-muted">Number of rounds</h4>
+<div>
+  <button *ngFor="let number of numberOfRounds" class="m-1 btn btn-lg btn-outline-danger" (click)="select(number.value)">{{number.key}}</button>
+</div>
