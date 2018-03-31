@@ -13,7 +13,7 @@ import { RouterModule } from "@angular/router";
 
 const routes: Routes = [
   { path: "", redirectTo: "/landing", pathMatch: "full" },
-  { path: "landing", component: LandingComponent, data: { state: "landing" } },
+  { path: "landing", component: LandingComponent },
   {
     path: "opponent",
     component: OpponentComponent,
