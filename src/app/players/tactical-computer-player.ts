@@ -1,14 +1,10 @@
-import { Choice } from '../enums';
-import { BaseComputerPlayer } from './base-computer-player';
-import { Player } from '../interfaces';
+import { Choice } from "../enums";
+import { BaseComputerPlayer } from "./base-computer-player";
+import { Player } from "../interfaces";
 
 export class TacticalComputerPlayer extends BaseComputerPlayer
   implements Player {
-  public setNextChoice(choice?: Choice) {
-    if (choice !== undefined) {
-      this.choice = choice;
-    } else {
-      this.choice = this.randomChoice();
-    }
+  public setNextChoice(choice: Choice) {
+    this.choice = choice;
   }
 }

@@ -1,8 +1,14 @@
-<div class="row pb-4 text-primary">
-  <div class="col-sm">
-      <h1 class="card-title text-muted mb-4">Rock Paper Scissors</h1>
-      <div>
-        <a [routerLink]="['opponent']" class="btn btn-lg btn-success">Start</a>
-      </div>
+<div class="full bg-primary" fxLayout="column" fxLayoutAlign="center center">
+  <div class="row pb-4">
+    <div class="col-sm">
+        <h1 class="card-title text-light mb-4">
+          <span class="rock">Rock </span>
+          <span class="paper">Paper </span>
+          <span class="scissors">Scissors</span>
+        </h1>
+        <div>
+          <a [routerLink]="['/','opponent']" class="btn btn-lg btn-success">Start</a>
+        </div>
+    </div>
   </div>
 </div>

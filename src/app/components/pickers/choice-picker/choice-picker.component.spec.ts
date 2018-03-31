@@ -1,18 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { ChoicePickerComponent } from './choice-picker.component';
+import { ChoicePickerComponent } from "./choice-picker.component";
 
-describe('ChoicePickerComponent', () => {
+describe("ChoicePickerComponent", () => {
   let component: ChoicePickerComponent;
   let fixture: ComponentFixture<ChoicePickerComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [ChoicePickerComponent]
+        declarations: [ChoicePickerComponent],
       }).compileComponents();
     })
   );
@@ -23,14 +23,14 @@ describe('ChoicePickerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have data', () => expect(component.choiceTypes).toBeTruthy());
+  it("should have data", () => expect(component.choiceTypes).toBeTruthy());
 
   it(
-    'should output selected',
+    "should output selected",
     async(() => {
       // Arrange
       const value = 1;
@@ -39,7 +39,7 @@ describe('ChoicePickerComponent', () => {
       component.select(value);
 
       // Assert
-      component.selectedType.toPromise().then(x => expect(x).toBe(value));
+      component.selectedType.toPromise().then((x) => expect(x).toBe(value));
     })
   );
 });

@@ -1,5 +1,5 @@
-import { Player } from '../interfaces';
-import { Choice } from '../enums';
+import { Player } from "../interfaces";
+import { Choice } from "../enums";
 
 export class HumanPlayer implements Player {
   public id: number;

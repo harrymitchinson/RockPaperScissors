@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
-import { GameService } from '../services';
+import { Injectable } from "@angular/core";
+import { Router, CanActivate } from "@angular/router";
+import { GameService } from "../services";
 
 @Injectable()
 export class NoResultsGuard implements CanActivate {
@@ -8,7 +8,7 @@ export class NoResultsGuard implements CanActivate {
   canActivate(): boolean {
     const results = this.gameService.getResults();
     if (results.length === 0) {
-      this.router.navigate(['weapon', 1]);
+      this.router.navigate(["weapon", 1]);
       return false;
     }
     return true;

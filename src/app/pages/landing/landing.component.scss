@@ -1,0 +1,22 @@
+.full {
+  height: 100%;
+  width: 100%;
+}
+
+:host {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.rock {
+  font-family: 'Frijole';
+}
+
+.paper {
+  font-family: 'Crafty Girls'
+}
+
+.scissors {
+  font-family: 'Freckle Face'
+}

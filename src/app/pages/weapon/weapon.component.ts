@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { GameService } from '../../services';
-import { Choice } from '../../enums';
-import { Router, Route, ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { GameService } from "../../services";
+import { Choice } from "../../enums";
+import { Router, Route, ActivatedRoute, ParamMap } from "@angular/router";
+import { map } from "rxjs/operators";
 
 @Component({
-  selector: 'app-weapon',
-  templateUrl: './weapon.component.html',
-  styleUrls: ['./weapon.component.scss']
+  selector: "app-weapon",
+  templateUrl: "./weapon.component.html",
+  styleUrls: ["./weapon.component.scss"],
 })
 export class WeaponComponent implements OnInit {
   round: number;
@@ -20,19 +20,20 @@ export class WeaponComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap
-      .pipe(map(params => this.getRoundNumberFromParam(params)))
+      .pipe(map((params) => this.getRoundNumberFromParam(params)))
       .subscribe(
-        round => (this.round = round),
-        err => this.router.navigate(['/'])
+        (round) => {
+          this.totalRounds = this.gameService.getTotalRounds();
+          this.round = round;
+        },
+        (err) => this.router.navigate(["/"])
       );
-
-    this.totalRounds = this.gameService.getTotalRounds();
   }
 
   private getRoundNumberFromParam(paramMap: ParamMap) {
-    const value = Number(paramMap.get('round'));
+    const value = Number(paramMap.get("round"));
     if (isNaN(value)) {
-      throw new Error('Round is not a number');
+      throw new Error("Round is not a number");
     } else {
       return value;
     }
@@ -42,9 +43,9 @@ export class WeaponComponent implements OnInit {
     this.gameService.setChoice(this.round, 1, choice);
     this.gameService.playRound(this.round);
     if (this.round < this.totalRounds) {
-      this.router.navigate(['weapon', this.round + 1]);
+      this.router.navigate(["weapon", this.round + 1]);
     } else {
-      this.router.navigate(['result']);
+      this.router.navigate(["result"]);
     }
   }
 }

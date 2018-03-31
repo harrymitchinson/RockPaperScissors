@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { GameService } from '../../services';
-import { Player } from '../../interfaces';
-import { HumanPlayer, ComputerPlayer, TacticalComputerPlayer } from '../../players';
-import { PlayerType } from '../../enums';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { GameService } from "../../services";
+import { Player } from "../../interfaces";
+import {
+  HumanPlayer,
+  ComputerPlayer,
+  TacticalComputerPlayer,
+} from "../../players";
+import { PlayerType } from "../../enums";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-opponent',
-  templateUrl: './opponent.component.html',
-  styleUrls: ['./opponent.component.scss']
+  selector: "app-opponent",
+  templateUrl: "./opponent.component.html",
+  styleUrls: ["./opponent.component.scss"],
 })
 export class OpponentComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   onSelectedPlayerType(type: PlayerType) {
     const player1 = new HumanPlayer({ id: 1 });
@@ -29,6 +31,6 @@ export class OpponentComponent implements OnInit {
         break;
     }
     this.gameService.setPlayers(player1, player2);
-    this.router.navigate(['rounds']);
+    this.router.navigate(["rounds"]);
   }
 }

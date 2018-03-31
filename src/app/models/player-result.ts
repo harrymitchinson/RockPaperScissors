@@ -1,4 +1,4 @@
-import { Choice } from '../enums';
+import { Choice } from "../enums";
 
 export class PlayerResult {
   public id: number;
