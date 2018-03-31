@@ -1,11 +1,10 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { BasePicker } from './../base-picker';
-import { PlayerType } from '../../../enums';
+import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { BasePicker } from "./../base-picker";
+import { PlayerType } from "../../../enums";
 
 @Component({
-  selector: 'app-player-picker',
-  templateUrl: './player-picker.component.html',
-  styleUrls: ['./player-picker.component.scss']
+  selector: "app-player-picker",
+  templateUrl: "./player-picker.component.html",
 })
 export class PlayerPickerComponent extends BasePicker {
   playerTypes = [
@@ -14,12 +13,12 @@ export class PlayerPickerComponent extends BasePicker {
       value: PlayerType.Human
     }, */
     {
-      key:  'Computer',
-      value: PlayerType.Computer
+      key: "Computer",
+      value: PlayerType.Computer,
     },
     {
-      key:  'Tactical Computer',
-      value: PlayerType.TacticalComputer
+      key: "Tactical Computer",
+      value: PlayerType.TacticalComputer,
     },
   ];
 }

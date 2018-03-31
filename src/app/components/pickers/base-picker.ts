@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from "@angular/core";
 
 export class BasePicker {
   @Output() selectedType = new EventEmitter<number>();

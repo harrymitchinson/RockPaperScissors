@@ -12,18 +12,21 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,js}": ["prettier --write", "git add"]
+    "*.{ts,js}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": "8.9.1",
     "npm": "2.13.0"
   },
   "prettier": {
-    "printWidth": 80, 
+    "printWidth": 80,
     "tabWidth": 2,
     "useTabs": false,
     "semi": true,
-    "singleQuote": true,
+    "singleQuote": false,
     "trailingComma": "es5",
     "bracketSpacing": true,
     "arrowParens": "always"
@@ -41,7 +44,6 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-    "@ng-bootstrap/ng-bootstrap": "^1.0.4",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",

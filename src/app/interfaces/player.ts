@@ -1,4 +1,4 @@
-import { Choice } from '../enums';
+import { Choice } from "../enums";
 
 export interface Player {
   id: number;

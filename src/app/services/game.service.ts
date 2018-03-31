@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Player } from '../interfaces';
-import { TacticalComputerPlayer, ComputerPlayer } from '../players';
-import { Choice, Outcome } from '../enums';
-import { GameResult } from '../models/game-result';
-import { PlayerResult } from '../models/player-result';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subject } from 'rxjs/Subject';
+import { Injectable } from "@angular/core";
+import { Player } from "../interfaces";
+import { TacticalComputerPlayer, ComputerPlayer } from "../players";
+import { Choice, Outcome } from "../enums";
+import { GameResult, PlayerResult } from "../models";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class GameService {
   private results = new Array<GameResult>();
   private player1: Player;
   private player2: Player;
-
+  // TODO: Keep track of past games.
   public playRound(round: number) {
     if (this.player2 instanceof ComputerPlayer) {
       this.player2.setNextChoice();
@@ -25,7 +24,7 @@ export class GameService {
     const result = new GameResult({
       player1: { ...this.player1 },
       player2: { ...this.player2 },
-      winner: winner.id
+      winner: winner.id,
     });
     this.results[round - 1] = result;
 

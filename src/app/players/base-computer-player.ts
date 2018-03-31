@@ -1,9 +1,15 @@
-import { Player } from '../interfaces';
-import { Choice } from '../enums';
+import { Player } from "../interfaces";
+import { Choice } from "../enums";
 
-export class BaseComputerPlayer  {
+export class BaseComputerPlayer {
   public id: number;
-  public choice: Choice;
+  private _choice: Choice;
+  public get choice() {
+    return this._choice;
+  }
+  public set choice(choice: Choice) {
+    this._choice = choice;
+  }
   public constructor(init?: Partial<BaseComputerPlayer>) {
     Object.assign(this, init);
     this.choice = this.randomChoice();

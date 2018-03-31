@@ -1,43 +1,44 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import {
-  PlayerPickerComponent,
-  ChoicePickerComponent,
-} from './components/pickers';
-import { GameService } from './services';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, async } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
+import { GameService } from "./services";
+import { RouterTestingModule } from "@angular/router/testing";
+import { Route } from "@angular/router";
+import { Component } from "@angular/core";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
-describe('AppComponent', () => {
+@Component({
+  selector: "app-test-route-component",
+  template: "",
+})
+class TestRouteComponent {}
+
+describe("AppComponent", () => {
+  const routes: Route[] = [
+    { path: "test", component: TestRouteComponent, data: { state: "test" } },
+  ];
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [RouterTestingModule],
-        declarations: [
-          AppComponent,
-          PlayerPickerComponent,
-          ChoicePickerComponent,
-        ],
+        imports: [RouterTestingModule.withRoutes(routes), NoopAnimationsModule],
+        declarations: [TestRouteComponent, AppComponent],
         providers: [GameService],
       }).compileComponents();
     })
   );
   it(
-    'should create the app',
+    "should create the app",
     async(() => {
       const fixture = TestBed.createComponent(AppComponent);
       const app = fixture.debugElement.componentInstance;
       expect(app).toBeTruthy();
     })
   );
-  /*   it(`should have as title 'app'`, async(() => {
+
+  it("should pass route outlet", () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  })); */
+    const component = fixture.componentInstance;
+    const outlet = { activatedRouteData: { state: "test" } };
+    const result = component.getState(outlet);
+    expect(result).toBe(routes[0].data.state);
+  });
 });
