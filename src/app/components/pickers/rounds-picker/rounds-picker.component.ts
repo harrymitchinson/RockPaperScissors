@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { BasePicker } from "../base-picker";
 
 @Component({
@@ -6,6 +6,10 @@ import { BasePicker } from "../base-picker";
   templateUrl: "./rounds-picker.component.html",
 })
 export class RoundsPickerComponent extends BasePicker {
+  /**
+   * The number of rounds the user can pick.
+   * @memberof RoundsPickerComponent
+   */
   numberOfRounds = [
     {
       key: "Three",

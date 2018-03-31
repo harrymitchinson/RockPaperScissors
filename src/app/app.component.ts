@@ -1,11 +1,4 @@
 import { Component } from "@angular/core";
-import { GameService } from "./services";
-import { HumanPlayer, ComputerPlayer, TacticalComputerPlayer } from "./players";
-import { Choice, Outcome, PlayerType } from "./enums";
-import { OnInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
-import { tap, map } from "rxjs/operators";
-import { Player } from "./interfaces";
 import { slideTransition } from "./routing.animations";
 import { RouterOutlet } from "@angular/router";
 
@@ -13,10 +6,30 @@ import { RouterOutlet } from "@angular/router";
   animations: [slideTransition],
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+  styles: [
+    `:host {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }`,
+    `main {
+      height: 100%;
+    }`,
+    `div {
+      height: 100%;
+    }`,
+  ],
 })
 export class AppComponent {
-  getState(outlet: RouterOutlet | any) {
+  /**
+   * Get the state value from the activated route.
+   * @param {(RouterOutlet | any)} outlet
+   * @returns {string}
+   * @memberof AppComponent
+   */
+  getState(outlet: RouterOutlet | any): string {
     return outlet.activatedRouteData.state;
   }
 }
