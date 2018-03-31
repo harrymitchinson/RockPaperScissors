@@ -11,12 +11,11 @@ describe("TacticalComputerPlayer", () => {
   it("should set new choice", () => {
     // Arrange
     const player = new TacticalComputerPlayer({ id: 1 });
-    const spy = spyOnProperty(player, "choice", "set");
 
     // Act
     player.setNextChoice(Choice.Paper);
 
     // Assert
-    expect(spy).toHaveBeenCalled();
+    expect(player.choice).toBe(Choice.Paper);
   });
 });
