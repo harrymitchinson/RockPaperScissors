@@ -1,18 +1,40 @@
 import { Injectable } from "@angular/core";
 import { Player } from "../interfaces";
 import { TacticalComputerPlayer, ComputerPlayer } from "../players";
-import { Choice, Outcome } from "../enums";
+import { Choice } from "../enums";
 import { GameResult, PlayerResult } from "../models";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class GameService {
+  /**
+   * The game results.
+   * @private
+   * @memberof GameService
+   */
   private results = new Array<GameResult>();
-  private player1: Player;
-  private player2: Player;
-  // TODO: Keep track of past games.
-  public playRound(round: number) {
+
+  /**
+   * Player1
+   * @type {Player}
+   * @memberof GameService
+   */
+  player1: Player;
+
+  /**
+   * Player2
+   * @type {Player}
+   * @memberof GameService
+   */
+  player2: Player;
+
+  /**
+   * Play a round and get a result for the player's choices.
+   * @param {number} round
+   * @memberof GameService
+   */
+  playRound(round: number): void {
     if (this.player2 instanceof ComputerPlayer) {
       this.player2.setNextChoice();
     }
@@ -34,7 +56,15 @@ export class GameService {
     }
   }
 
-  private getWinner(player1: Player, player2: Player) {
+  /**
+   * Work out the winner when the player's choices are compared.
+   * @private
+   * @param {Player} player1
+   * @param {Player} player2
+   * @returns PlayerResult
+   * @memberof GameService
+   */
+  private getWinner(player1: Player, player2: Player): PlayerResult {
     if (
       (player1.choice === Choice.Rock && player2.choice === Choice.Paper) ||
       (player1.choice === Choice.Paper && player2.choice === Choice.Scissors) ||
@@ -48,28 +78,63 @@ export class GameService {
     }
   }
 
-  public getResults(round?: number) {
+  /**
+   * Get the game results.
+   * @param {number} [round]
+   * @returns {GameResult[]}
+   * @memberof GameService
+   */
+  getResults(round?: number): Array<GameResult> {
     return this.results;
   }
 
-  public setPlayers(player1: Player, player2: Player) {
+  /**
+   * Sets the player's in the service.
+   * @param {Player} player1
+   * @param {Player} player2
+   * @memberof GameService
+   */
+  setPlayers(player1: Player, player2: Player): void {
     this.player1 = player1;
     this.player2 = player2;
   }
 
-  public getPlayers() {
+  /**
+   * Get the player's from the service.
+   * @returns Player[]
+   * @memberof GameService
+   */
+  getPlayers(): Array<Player> {
     return [this.player1, this.player2];
   }
 
-  public setRounds(rounds: number) {
+  /**
+   * Set the number of rounds to be played in the service.
+   * @param {number} rounds
+   * @memberof GameService
+   */
+  setRounds(rounds: number): void {
     this.results = new Array<GameResult>(rounds);
   }
 
-  public getTotalRounds() {
+  /**
+   * Get the total number of rounds.
+   * @returns {number}
+   * @memberof GameService
+   */
+  getTotalRounds(): number {
     return this.results.length;
   }
 
-  public setChoice(round: number, id: number, choice: Choice) {
+  /**
+   * Set the player's choice.
+   * @param {number} round
+   * @param {number} id
+   * @param {Choice} choice
+   * @memberof GameService
+   */
+  setChoice(round: number, id: number, choice: Choice): void {
+    // TODO: Remove round.
     switch (id) {
       case 1:
         this.player1.setNextChoice(choice);

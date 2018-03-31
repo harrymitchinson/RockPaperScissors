@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { BasePicker } from "./../base-picker";
 import { Choice } from "./../../../enums";
 
@@ -7,6 +7,10 @@ import { Choice } from "./../../../enums";
   templateUrl: "./choice-picker.component.html",
 })
 export class ChoicePickerComponent extends BasePicker {
+  /**
+   * The types of weapons the user can pick from.
+   * @memberof ChoicePickerComponent
+   */
   choiceTypes = [
     {
       key: "Rock",

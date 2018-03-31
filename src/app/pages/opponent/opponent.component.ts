@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { GameService } from "../../services";
 import { Player } from "../../interfaces";
 import {
@@ -12,14 +12,22 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-opponent",
   templateUrl: "./opponent.component.html",
-  styleUrls: ["./opponent.component.scss"],
 })
-export class OpponentComponent implements OnInit {
+export class OpponentComponent {
+  /**
+   * Creates an instance of OpponentComponent.
+   * @param {GameService} gameService
+   * @param {Router} router
+   * @memberof OpponentComponent
+   */
   constructor(private gameService: GameService, private router: Router) {}
 
-  ngOnInit() {}
-
-  onSelectedPlayerType(type: PlayerType) {
+  /**
+   * Set the players of the game and redirect the user.
+   * @param {PlayerType} type
+   * @memberof OpponentComponent
+   */
+  onSelectedPlayerType(type: PlayerType): void {
     const player1 = new HumanPlayer({ id: 1 });
     let player2: Player;
     switch (type) {

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { Component } from "@angular/core";
 import { BasePicker } from "./../base-picker";
 import { PlayerType } from "../../../enums";
 
@@ -7,11 +7,11 @@ import { PlayerType } from "../../../enums";
   templateUrl: "./player-picker.component.html",
 })
 export class PlayerPickerComponent extends BasePicker {
+  /**
+   * The types of player the user can pick from.
+   * @memberof PlayerPickerComponent
+   */
   playerTypes = [
-    /* {
-      key:  'Human',
-      value: PlayerType.Human
-    }, */
     {
       key: "Computer",
       value: PlayerType.Computer,

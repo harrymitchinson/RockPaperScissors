@@ -1,7 +1,5 @@
-import { async, inject } from "@angular/core/testing";
 import { GameService } from "./";
-import { Choice, Outcome } from "../enums";
-import { toPromise } from "rxjs/operator/toPromise";
+import { Choice } from "../enums";
 import {
   HumanPlayer,
   TacticalComputerPlayer,
