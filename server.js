@@ -5,7 +5,7 @@ const path = require("path");
 // Force HTTPS.
 app.use(function(req, res, next) {
   if (req.headers["x-forwarded-proto"] == "http") {
-    return resp.redirect(301, "https://" + req.headers.host + "/");
+    return res.redirect(301, "https://" + req.headers.host + "/");
   } else {
     return next();
   }
