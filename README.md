@@ -1,6 +1,29 @@
 # RockPaperScissors
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This was originally set as an assessment for a job I had applied for. It was never submitted as the position was filled the day after I recieved the brief, decided to have a go at it anyway. 
+
+Demo: https://hm-rock-paper-scissors.herokuapp.com
+
+# Features
+
+- Pick the type of opponent player (Computer Player / Tactical Computer Player)
+- Pick the number of rounds to play (3 / 5 / 7)
+
+## Players
+
+#### Computer Player
+
+The random computer player should automatically select one of Rock, Paper or Scissors at random for each turn.
+
+#### Tactical Computer Player
+
+The tactical computer player should always select the choice which won the previous round (excluding the first round which is random).
+
+## Extensibility
+
+- New computer player types by extending the BaseComputerPlayer and implementing the Player interface.
+- Game lengths by changing the values in the numberOfRounds property within the RoundsPickerComponent.
+- New choices by adding to the Choices enum and adding values to the ChoicePickerComponent and handling to the getWinner method of the GameService.
 
 ## Development server
 
