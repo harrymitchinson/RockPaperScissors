@@ -39,7 +39,7 @@ const DECLARATIONS = [
 ];
 
 const IMPORTS = [
-  BrowserModule,
+  BrowserModule.withServerTransition({ appId: "rock-paper-scissors" }),
   BrowserAnimationsModule,
   FlexLayoutModule,
   AppRoutingModule,
