@@ -25,6 +25,13 @@ export class WeaponComponent implements OnInit {
   private totalRounds: number;
 
   /**
+   * Whether the current round is the final round.
+   * @type {boolean}
+   * @memberof WeaponComponent
+   */
+  isFinalRound: boolean;
+
+  /**
    * Creates an instance of WeaponComponent.
    * @param {GameService} gameService
    * @param {Router} router
@@ -49,6 +56,7 @@ export class WeaponComponent implements OnInit {
         (round) => {
           this.totalRounds = this.gameService.getTotalRounds();
           this.round = round;
+          this.isFinalRound = this.round === this.totalRounds;
         },
         (err) => this.router.navigate(["/"])
       );
