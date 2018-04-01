@@ -15,6 +15,9 @@ import { GameResult } from "../../models";
     height: 100%;
     width: 100%;
   }`,
+    `.list-group-item {
+    border-color: 1px solid rgba(0, 0, 0, 0.08);
+  }`,
   ],
 })
 export class ResultComponent implements OnInit {

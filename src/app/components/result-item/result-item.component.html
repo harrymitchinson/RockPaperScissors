@@ -1,13 +1,13 @@
-<div fxLayout="row" fxLayoutAlign="space-around center" class="m-1">
+<div fxLayout="row" fxLayoutAlign="space-around center" class="m-0">
   <div class="text-muted">{{ round }}</div>
   <div class="mr-4 ml-4" fxLayout="row" fxLayoutAlign="space-around center">
     <div class="choice">{{ choices[result.player1.choice] }}</div>
     <div class="text-muted mr-2 ml-2">vs</div>
     <div class="choice">{{ choices[result.player2.choice] }}</div>
   </div>
-  <div class="badge badge-pill" [ngClass]="badgeColour">
-    <span *ngIf="result.winner === 0">Draw</span>
-    <span *ngIf="result.winner === 1">Won</span>
-    <span *ngIf="result.winner === 2">Loss</span>
+  <div class="badge" [ngClass]="badgeColour">
+    <ng-container *ngIf="result.winner === 0">Draw</ng-container>
+    <ng-container *ngIf="result.winner === 1">Won</ng-container>
+    <ng-container *ngIf="result.winner === 2">Loss</ng-container>
   </div>
 </div>

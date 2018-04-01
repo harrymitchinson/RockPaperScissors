@@ -1,30 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Frijole|Freckle+Face|Open+Sans|Crafty+Girls');
+@import url("https://fonts.googleapis.com/css?family=Frijole|Freckle+Face|Poppins|Crafty+Girls");
 
 $theme-colors: (
   "primary": #9c27b0,
   "danger": #e53935,
-  "success": #4caf50
+  "success": #4caf50,
+  "info": #03a9f4
 );
-$font-size-base: 1.2rem;
-$font-family-sans-serif: 'Open+Sans', 'Helvetica', 'Arial', sans-serif;
+$font-size-base: 1.1rem;
+$font-family-sans-serif: "Poppins", "Helvetica", "Arial", sans-serif;
 $body-bg: whitesmoke;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: 100;
 }
 
+.btn {
+  transition: 200ms box-shadow ease-in-out, 200ms background-color ease-in-out;
+  box-shadow: 0;
+  &:hover {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12); 
+  }
+}
 
 .rock {
-  font-family: 'Frijole';
+  font-family: "Frijole";
 }
 
 .paper {
-  font-family: 'Crafty Girls'
+  font-family: "Crafty Girls";
 }
 
 .scissors {
-  font-family: 'Freckle Face'
+  font-family: "Freckle Face";
 }

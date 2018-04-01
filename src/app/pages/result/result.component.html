@@ -1,15 +1,17 @@
 <div class="full bg-primary" fxLayout="column" fxLayoutAlign="center center">
   <div class="row">
-    <div class="col-sm mb-4 text-light">
-      <h2 *ngIf="player1Score > player2Score">You won!</h2>
-      <h2 *ngIf="player1Score < player2Score">You lost!</h2>
-      <h2 *ngIf="player1Score === player2Score">It's a draw!</h2>
+    <div class="col-sm mb-4">
+      <h2 class="text-light">
+        <ng-container *ngIf="player1Score > player2Score">You won!</ng-container>
+        <ng-container *ngIf="player1Score < player2Score">You lost!</ng-container>
+        <ng-container *ngIf="player1Score === player2Score">It's a draw!</ng-container>
+      </h2>
     </div>
   </div>
   <div class="row">
     <div class="col-sm mb-4">
       <div class="list-group">
-        <div class="list-group-item" *ngFor="let result of results; let i = index">
+        <div class="list-group-item p-2 pl-3 pr-2" *ngFor="let result of results; let i = index">
           <app-result-item [result]="result" [round]="i + 1"></app-result-item>
         </div>
       </div>
