@@ -135,7 +135,7 @@ describe("GameService", () => {
       it("should set previous winning choice as next choice", () => {
         // Arrange
         const player1 = new HumanPlayer({ id: 1 });
-        player1.setNextChoice(Choice.Paper);
+        player1.setNextChoice(Choice.Scissors);
         const player2 = new TacticalComputerPlayer({ id: 2 });
         player2.setNextChoice(Choice.Rock);
         service.setPlayers(player1, player2);
