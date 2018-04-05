@@ -50,9 +50,20 @@ export class GameService {
     });
     this.results[round - 1] = result;
 
-    // If player 2 is a tact computer, set their next choice as the winning choice.
+    // If player 2 is a tactical computer,
+    // set their next choice as whatever would have beaten their previous choice.
     if (this.player2 instanceof TacticalComputerPlayer) {
-      this.player2.setNextChoice(winner.choice);
+      switch (this.player2.choice) {
+        case Choice.Rock:
+          this.player2.setNextChoice(Choice.Paper);
+          break;
+        case Choice.Paper:
+          this.player2.setNextChoice(Choice.Scissors);
+          break;
+        case Choice.Scissors:
+          this.player2.setNextChoice(Choice.Rock);
+          break;
+      }
     }
   }
 
