@@ -32,6 +32,6 @@ export class BaseComputerPlayer {
    * @memberof BaseComputerPlayer
    */
   protected randomChoice(): number {
-    return Math.floor(Math.random() * 3) + 1 - 1;
+    return Math.floor(Math.random() * 3);
   }
 }
